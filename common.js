@@ -107,7 +107,6 @@ export const prepareHtml = (template, title, publicationDateString, body) => {
   const a = template.search("<body>");
   const b = template.search("</body>");
   const c = template.search("<title>");
-  const d = template.search("</title>");
   if (a == -1 || b == -1) {
     alert("The template HTML file must have a body tag");
     return;
@@ -117,7 +116,7 @@ export const prepareHtml = (template, title, publicationDateString, body) => {
   const templateAfterBody = template.substr(b);
 
   if (c !== -1 && d !== -1) {
-    templateBeforeBody = templateBeforeBody.substr(0, c + 7) + title + templateBeforeBody.substr(d);
+    templateBeforeBody = templateBeforeBody.substr(0, c + 7) + title + templateBeforeBody.substr(c + 7);
   }
 
   // Copy body under an invisible element and manipulate DOM to generate the output file
