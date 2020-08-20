@@ -106,10 +106,12 @@ retrieveDataFile(githubUsername, githubRepository).then(d => {
   entries.forEach(entry => {
     const titleTextNode = document.createTextNode(entry.title);
     const publicationDateTextNode = document.createTextNode("Created: " + new Date(entry.publicationDate).toLocaleDateString(siteLocale, {"year": "numeric", "month": "long", "day": "numeric"}));
+    const lastEditedDateTextNode = document.createTextNode("Last udpated: " + new Date(entry.lastEditedDate).toLocaleDateString(siteLocale, {"year": "numeric", "month": "long", "day": "numeric"}));
     const pathTextNode = document.createTextNode("/" + entry.path);
     const entryContainer = document.createElement("div");
     const entryTitle = document.createElement("h2");
     const entryPublicationDate = document.createElement("p");
+    const entryLastEditedDate = document.createElement("p");
     const entryLinks = document.createElement("div");
     const entryLink = document.createElement("a");
     const editButton = document.createElement("button");
@@ -128,10 +130,11 @@ retrieveDataFile(githubUsername, githubRepository).then(d => {
     entryLink.href = `https://${githubUsername}.github.io/${githubRepository}/${entry.path}`;
     entryTitle.appendChild(titleTextNode);
     entryPublicationDate.appendChild(publicationDateTextNode);
+    entryLastEditedDate.appendChild(lastEditedDateTextNode);
     entryLink.appendChild(pathTextNode);
     entryLink.classList.add("pathlink");
     entryLinks.append(entryLink, editButton, deleteButton);
-    entryContainer.append(entryTitle, entryPublicationDate, entryLinks);
+    entryContainer.append(entryTitle, entryPublicationDate, entryLastEditedDate, entryLinks);
     entryContainer.classList.add("entry");
     document.querySelector(".main").appendChild(entryContainer);
   });
