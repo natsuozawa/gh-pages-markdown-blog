@@ -1,0 +1,9 @@
+.pathlink, .pathlink:visited {
+  text-decoration: none;
+  color: rgb(55, 137, 204);
+  margin-right: 8px;
+}
+
+.main > .entry {
+  margin: 12px 0;
+}

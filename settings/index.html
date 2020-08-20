@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Settings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../universal.css" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="header">
+    <h1><a href="../" class="h1link">Settings | Github Pages Markdown Blog</a></h1>
+    <button class="icon active-icon" id="home"></button>
+    <button class="icon active-icon" id="save"></button>
+  </div>
+  <div class="main">
+    <div class="container">
+      <h3 class="required">Unless noted otherwise, these settings are required. Please fill them out before using!</h3>
+    </div>
+    <div class="container">
+      <h2>Github username</h2>
+      <input type="text" class="normal" id="github-username" placeholder="The name of the user that owns the repository" />
+    </div>
+    <div class="container">
+      <h2>Github repository name</h2>
+      <input type="text" class="normal" id="github-repository" placeholder="The name of the repository that contains the blog pages" />
+    </div>
+    <div class="container">
+      <h2>Template HTML file</h2>
+      <input type="text" class="normal" id="template-url" placeholder="The URL to the template file for each blog post (See docs)" />
+    </div>
+    <div class="container">
+      <h2>Site Locale (optional)</h2>
+      <input type="text" class="normal" id="site-locale" placeholder="The locale to display date" />
+      <p>For the United States, use "en-US", for Japan, use "ja-JP".</p>
+    </div>
+      <h2>
+  </div>
+  <script src="index.js" type="module"></script>
+</body>
+</html>

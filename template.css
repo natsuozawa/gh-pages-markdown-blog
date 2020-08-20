@@ -1,0 +1,8 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#blog-name {
+  font-size: 42;
+  margin: 0;
+}

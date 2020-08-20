@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Entry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="../universal.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="header">
+    <h1><a href="../" class="h1link">Edit Entry | Github Pages Markdown Blogs</a></h1>
+    <button class="icon active-icon" id="home"></button>
+    <button class="icon active-icon" id="send"></button>
+    <button class="icon active-icon" id="edit"></button>
+  </div>
+  <div class="main" id="editing-main">
+    <input type="text" id="title-editor" class="title" placeholder="Title (not editable)" readonly />
+    <div class="body">
+      <textarea id="main-editor" class="editor" placeholder="Body"></textarea>
+      <div class="preview"></div>
+    </div>
+  </div>
+  <div class="main" id="instructions-main">
+    <div class="preview"></div>
+    <div class="instructions">
+      <h2>Almost there!</h2>
+      <p>Please follow the steps below to publish your changes!</p>
+      <br />
+      <ol>
+        <li>Click the button below to jump to Github.</li>
+        <li>Type <span style="font-weight: bold">index.html</span> for the file name.</li>
+        <li>Paste the html on the left into the "Edit new file" box. (The HTML should already be copied)</li>
+        <li>Commit.</li>
+      </ol>
+      <br />
+      <button id="github" class="action">Go to Github</button>
+      <button id="finished" class="action">I'm finished!</button>
+    </div>
+  </div>
+  <div id="workspace"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+  <script src="index.js" type="module"></script>
+</body>
+</html>

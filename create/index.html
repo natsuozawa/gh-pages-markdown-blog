@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Entry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="../universal.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="header">
+    <h1><a href="../" class="h1link">New Entry | Github Pages Markdown Blogs</a></h1>
+    <button class="icon active-icon" id="home"></button>
+    <button class="icon active-icon" id="save"></button>
+    <button class="icon" id="saved"></button>
+    <button class="icon active-icon" id="send"></button>
+  </div>
+  <div class="main">
+    <input type="text" id="title-editor" class="title" placeholder="Title" />
+    <div class="body">
+      <textarea id="main-editor" class="editor" placeholder="Body"></textarea>
+      <div class="preview"></div>
+    </div>
+  </div>
+  <div id="workspace"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+  <!-- <script src="index.js" type="module"></script> -->
+  <script src='index.js' type="module"></script>
+</body>
+</html>

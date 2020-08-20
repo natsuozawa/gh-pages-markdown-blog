@@ -1,0 +1,127 @@
+html, body, * {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.icon {
+  border: none;
+  outline: 0;
+  height: 24px;
+  width: 24px;
+  margin: 0 16px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.icon:hover {
+  background-color: transparent;
+}
+
+.active-icon {
+  cursor: pointer;
+}
+
+.active-icon:active {
+  transform: translateY(4px);
+}
+
+.action {
+  border: 1px solid #999;
+  outline: 0;
+  height: 32px;
+  width: 128px;
+  background-color: transparent;
+  border-radius: 8px;
+  cursor:pointer;
+}
+
+.action:active {
+  transform: translateY(4px);
+}
+
+.mini-icon {
+  height: 20px !important;
+  width: 20px !important;
+  margin: 0 8px !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header {
+  height: 64px;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header > h1 {
+  line-height: 64px;
+  font-size: 24px;
+  flex: 1 1 auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.header .h1link {
+  color: black;
+  text-decoration: none;
+}
+
+.main {
+  height: calc(100vh - 96px);
+  padding: 0 32px 32px 32px;
+  overflow: auto;
+}
+
+button#send {
+  background-image: url("assets/send.svg");
+}
+
+button#edit {
+  background-image: url("assets/edit.svg");
+  display: none;
+}
+
+button#save {
+  background-image: url("assets/save.svg")
+}
+
+button#saved {
+  background-image: url("assets/check.svg");
+  display: none;
+}
+
+button#home {
+  background-image: url("assets/home.svg");
+}
+
+button#settings {
+  background-image: url("assets/settings.svg");
+}
+
+button#create {
+  background-image: url("assets/create.svg");
+}
+
+button.delete {
+  background-image: url("assets/delete.svg");
+}
+
+#workspace {
+  display: none;
+}
+
+button.edit {
+  background-image: url("assets/edit.svg");
+}
+
+button.delete {
+  background-image: url("assets/delete.svg");
+}

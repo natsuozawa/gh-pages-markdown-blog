@@ -1,0 +1,18 @@
+.required {
+  display: none;
+  color: red;
+}
+
+.container {
+  margin-top: 16px;
+}
+
+input.normal {
+  width: calc(100% - 32px);
+  padding: 16px;
+  border: #999 solid 1px;
+  border-radius: 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
