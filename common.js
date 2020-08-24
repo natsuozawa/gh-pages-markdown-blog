@@ -115,7 +115,7 @@ export const prepareHtml = (template, title, publicationDateString, body) => {
   const templateBody = template.substr(a + 6, b - a - 6);
   const templateAfterBody = template.substr(b);
 
-  if (c !== -1 && d !== -1) {
+  if (c !== -1) {
     templateBeforeBody = templateBeforeBody.substr(0, c + 7) + title + templateBeforeBody.substr(c + 7);
   }
 
