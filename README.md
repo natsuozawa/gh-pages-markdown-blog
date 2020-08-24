@@ -27,12 +27,16 @@ GPMB is intended to be a minimal blog platform, in experiment. Currently, users 
 Note that GPMB is intended for people with sufficient web development skills. 
 
 1. Create a new repository on Github. Enable Github Pages. If you are not planning to use a custom domain, the blog posts will be created under https://`username`.github.io/`project name`
-2. Create your own template HTML page and stylesheets/scripts.
+2. Create your own template HTML page and stylesheets/scripts. The template HTML must have `div`s with id `gpmb_title_root`, `gpmb_date_root`, `gpmb_body_root`.
 3. Get a copy of GPMB's client-side script `gpmb.js` on this repository and add it to your repository. This script provides a `gpmb` object, which has methods to get a list of entries and embed them. (API reference below)
 4. Create your own index page and embed `gpmb.js`. Use the methods to index your entries.
-5. Go to the Blog Manager. You will be required to configure your Github information and specify the template html location in settings. 
+5. Go to the Blog Manager. You will be required to configure your Github information and specify the template html location in settings. The template html location should be https://raw.githubusercontent.com/`username`/`repository`/master/`path to html`.html
 6. Write an entry. In order to push it to Github, create a new Github personal access token (PAT) with the permission `public_repo`. Save it in your Password Manager and use it when prompted. (Your credentials are never saved for security - you will have to provide it every time)
 7. You are good to go!
+
+# Accessing Blog Manager
+
+Navigate to [Blog Manager | Github Pages Markdown Blog](https://gpmb.natsuozawa.com)
 
 # gpmb.js API reference
 
@@ -91,6 +95,15 @@ The following parameters are accepted.
 * **begin** *(optional, defaults to 0)*: a number containing the index of the newest entry to embed, 0-indexed.
 * **end** *(optional, defaults to -1)*: a number containing the index of the oldest entry to embed, -1 indexed. Use -1 for the earliest entry.
 * **locale** *(optional, defaults to `en-US`)*: a string containing a valid locale with which date strings are created.
+
+## Example code 
+This code sample loads the data from my blog repository and embed all entries under the element with id `gpmb_index_root`.
+
+```
+gpmb.load("natsuozawa", "blog", function() {
+  gpmb.embed(document.getElementById("gpmb_index_root"));
+});
+```
 
 # Development 
 
