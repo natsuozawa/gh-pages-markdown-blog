@@ -28,7 +28,7 @@ Note that GPMB is intended for people with sufficient web development skills.
 
 1. Create a new repository on Github. Enable Github Pages. If you are not planning to use a custom domain, the blog posts will be created under https://`username`.github.io/`project name`
 2. Create your own template HTML page and stylesheets/scripts. The template HTML must have `div`s with id `gpmb_title_root`, `gpmb_date_root`, `gpmb_body_root`.
-3. Get a copy of GPMB's client-side script `gpmb.js` on this repository and add it to your repository. This script provides a `gpmb` object, which has methods to get a list of entries and embed them. (API reference below)
+3. Get a copy of GPMB's client-side script `gpmb.js` on this repository and add it to your repository. This script provides a `gpmb` object, which has methods to get a list of entries and embed them. (API reference below) Note: if you don't need to change the client script, load it directory from githubusercontent to receive the latest updates.
 4. Create your own index page and embed `gpmb.js`. Use the methods to index your entries.
 5. Go to the Blog Manager. You will be required to configure your Github information and specify the template html location in settings. The template html location should be https://raw.githubusercontent.com/`username`/`repository`/master/`path to html`.html
 6. Write an entry. In order to push it to Github, create a new Github personal access token (PAT) with the permission `public_repo`. Save it in your Password Manager and use it when prompted. (Your credentials are never saved for security - you will have to provide it every time)
