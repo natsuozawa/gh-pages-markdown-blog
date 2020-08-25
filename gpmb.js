@@ -13,7 +13,7 @@ var gpmb = {
  * @param {string} repository name of the Github repository with the .gpmb.json file
  * @param {function} callback called if loading succeeds
  */
-gpmb.load = function(username, repository, callback = function() {}) {
+gpmb.load = function(username, repository, callback) {
   gpmb.username = username;
   gpmb.repository = repository;
   var xhr = new XMLHttpRequest();
@@ -23,7 +23,7 @@ gpmb.load = function(username, repository, callback = function() {}) {
         gpmb.entries = JSON.parse(xhr.responseText).sort(function(a, b) {
           return new Date(a.lastEditedDate) > new Date(b.lastEditedDate);
         });
-        callback();
+        if (typeof callback === "function") callback();
       } else {
         gpmb.error = true;
       }
@@ -40,8 +40,11 @@ gpmb.load = function(username, repository, callback = function() {}) {
  * @param {number} end index of the earliest element to embed (0-indexed, -1 for the last element, -1 by default)
  * @param {string} locale valid locale (eg: en-US, ja-JP)
  */
-gpmb.embed = function(element, begin = 0, end = -1, locale = "en-US") {
-  if (end == -1) end = gpmb.entries.length - 1;
+gpmb.embed = function(element, begin, end, locale) {
+  if (typeof begin === "undefined") begin = 0;
+  if (typeof end === "undefined") end = -1;
+  if (typeof locale === "undefined") locale = "en-US"
+  if (end === -1) end = gpmb.entries.length - 1;
   if (end < begin) {
     var temp = end;
     end = begin;
@@ -60,7 +63,8 @@ gpmb.embed = function(element, begin = 0, end = -1, locale = "en-US") {
     entryLink.appendChild(titleTextNode);
     entryDate.appendChild(dateTextNode);
     entryTitle.appendChild(entryLink);
-    entryContainer.append(entryTitle, entryDate);
+    entryContainer.appendChild(entryTitle);
+    entryContainer.appendChild(entryDate);
     entryContainer.classList.add("gpmb_entry");
     element.appendChild(entryContainer);
   }
