@@ -44,7 +44,7 @@ gpmb.embed = function(element, begin, end, locale) {
   if (typeof begin === "undefined") begin = 0;
   if (typeof end === "undefined") end = -1;
   if (typeof locale === "undefined") locale = "en-US"
-  if (end === -1) end = gpmb.entries.length - 1;
+  if (end === -1 || end >= gpmb.entries.length) end = gpmb.entries.length - 1;
   if (end < begin) {
     var temp = end;
     end = begin;
