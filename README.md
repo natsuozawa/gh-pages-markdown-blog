@@ -9,7 +9,7 @@ Traditionally, blogs have been hosted on centralized blog platforms (e.g. Blogge
 
 Github Pages, however, offers free and easy-to-use infrastructure, on which users are free to deploy static web pages customized to their likings. Github Pages Markdown Blog (GPMB) is built on top of Github Pages, allowing users to quickly create new entries and maintain them.
 
-On GPMB's Blog Manager, users can 
+On GPMB's Blog Manager, users can
 * Write new entries using Github Markdown.
 * Create a new page on their Github Pages site.
 * Edit or delete existing pages created using GPMB.
@@ -22,9 +22,9 @@ GPMB is intended to be a minimal blog platform, in experiment. Currently, users 
 * Store thumbnail along with entries.
 * Tag entries with relevant categories.
 
-# How to use 
+# How to use
 
-Note that GPMB is intended for people with sufficient web development skills. 
+Note that GPMB is intended for people with sufficient web development skills.
 
 1. Create a new repository on Github. Enable Github Pages. If you are not planning to use a custom domain, the blog posts will be created under https://`username`.github.io/`project name`
 2. Create your own template HTML page and stylesheets/scripts. The template HTML must have `div`s with id `gpmb_title_root`, `gpmb_date_root`, `gpmb_body_root`.
@@ -42,7 +42,7 @@ Navigate to [Blog Manager | Github Pages Markdown Blog](https://gpmb.natsuozawa.
 
 `gpmb.js` is the client-side script for GPMB. It contains a single object named `gpmb`.
 
-## Data members 
+## Data members
 
 ### gpmb.entries
 An array of entry objects. Is empty before `gpmb.load()` is called.
@@ -58,7 +58,7 @@ Entries are ordered by last edited date, from newest to oldest.
 
 ### gpmb.error
 
-A boolean. 
+A boolean.
 
 * True if an error is raised in `gpmb.load()`
 * False if `gpmb.load()` is completed successfully, or it is not called.
@@ -92,11 +92,13 @@ Creates a list of entries (an `<h1>` containing the title and a `<p>` containing
 The following parameters are accepted.
 
 * **element**: an HTML element under which the list is created.
-* **begin** *(optional, defaults to 0)*: a number containing the index of the newest entry to embed, 0-indexed.
-* **end** *(optional, defaults to -1)*: a number containing the index of the oldest entry to embed, -1 indexed. Use -1 for the earliest entry.
+* **begin** *(optional, defaults to 0)*: a number containing the index of the first entry to embed.
+* **end** *(optional, defaults to -1)*: a number containing the index of the last entry to embed, 0-indexed.
 * **locale** *(optional, defaults to `en-US`)*: a string containing a valid locale with which date strings are created.
 
-## Example code 
+For **begin** and **end**, use negative indices to display the newest pages.
+
+## Example code
 This code sample loads the data from my blog repository and embed all entries under the element with id `gpmb_index_root`.
 
 ```
@@ -105,9 +107,9 @@ gpmb.load("natsuozawa", "blog", function() {
 });
 ```
 
-# Development 
+# Development
 
-## Running locally 
+## Running locally
 
 Start Python's http server in the project directory.
 

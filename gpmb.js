@@ -36,22 +36,20 @@ gpmb.load = function(username, repository, callback) {
 /**
  * Embed posts, ordered by date
  * @param {HTML element} element parent element under which embeds will be created
- * @param {number} begin index of the latest element to embed (0-indexed, 0 by default)
- * @param {number} end index of the earliest element to embed (0-indexed, -1 for the last element, -1 by default)
+ * @param {number} begin index of the first element to embed (0-indexed, 0 by default)
+ * @param {number} end index of the last element to embed (0-indexed, -1 for the oldest element, -1 by default)
  * @param {string} locale valid locale (eg: en-US, ja-JP)
  */
 gpmb.embed = function(element, begin, end, locale) {
   if (typeof begin === "undefined") begin = 0;
   if (typeof end === "undefined") end = -1;
   if (typeof locale === "undefined") locale = "en-US"
-  if (end === -1 || end >= gpmb.entries.length) end = gpmb.entries.length - 1;
-  if (end < begin) {
-    var temp = end;
-    end = begin;
-    begin = temp;
-  }
+  if (begin < 0) begin += gpmb.entries.length;
+  begin = Math.min(Math.max(begin, 0), gpmb.entries.length - 1);
+  if (end < 0) end += gpmb.entries.length;
+  end = Math.min(Math.max(end, 0), gpmb.entries.length - 1);
 
-  for (var i = begin; i <= end; i++) {
+  for (var i = begin; begin < end ? i <= end : i >= end; begin < end ? i++ : i--) {
     var entry = gpmb.entries[i];
     const titleTextNode = document.createTextNode(entry.title);
     const dateTextNode = document.createTextNode(new Date(entry.lastEditedDate).toLocaleDateString(locale, {"year": "numeric", "month": "long", "day": "numeric"}));
